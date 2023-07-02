@@ -1,22 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import React, {useState} from 'react';
-import {FlatList} from 'react-native';
-import UserStory from './UserStory';
-import {getUsers} from '../../data/getUsers';
+import React from 'react';
 import {paginate} from '../../util/paginate';
+import UserPost from './UserPost';
 
-function Story() {
-  const users = getUsers();
-  const pageSize = 5;
+const {useState} = require('react');
+const {getPosts} = require('../../data/getPosts');
+const {FlatList} = require('react-native');
+
+function Posts() {
+  const posts = getPosts();
+  const pageSize = 2;
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentData, setCurrentData] = useState(users.slice(0, pageSize));
+  const [currentData, setCurrentData] = useState(posts.slice(0, pageSize));
 
   return (
     <FlatList
@@ -28,7 +23,7 @@ function Story() {
           setCurrentData(prev => [
             ...prev,
             ...paginate({
-              data: users,
+              data: posts,
               _page: page + 1,
               _pageSize: pageSize,
               setPageFunction: setPage,
@@ -37,11 +32,11 @@ function Story() {
           setIsLoading(false);
         }
       }}
-      showsHorizontalScrollIndicator={false}
-      horizontal={true}
+      showsVerticalScrollIndicator={false}
       data={currentData}
-      renderItem={({item}) => <UserStory firstName={item.firstName} />}
+      renderItem={({item}) => <UserPost postItem={item} />}
     />
   );
 }
-export default Story;
+
+export default Posts;

@@ -10,6 +10,7 @@ import {SafeAreaView, ScrollView, View} from 'react-native';
 import AppHeader from './components/AppHeader/AppHeader';
 import style from './assets/styles/main';
 import Story from './components/UserStory/Story';
+import Posts from './components/UserPost/Posts';
 
 function App(): JSX.Element {
   return (
@@ -19,6 +20,10 @@ function App(): JSX.Element {
 
         <View style={style.userStoryContainer}>
           <Story />
+        </View>
+
+        <View style={style.userPostContainer}>
+          <Posts />
         </View>
       </ScrollView>
     </SafeAreaView>
