@@ -16,10 +16,11 @@ function App(): JSX.Element {
     <SafeAreaView>
       <ScrollView>
         <AppHeader />
+
+        <View style={style.userStoryContainer}>
+          <Story />
+        </View>
       </ScrollView>
-      <View style={style.userStoryContainer}>
-        <Story />
-      </View>
     </SafeAreaView>
   );
 }
