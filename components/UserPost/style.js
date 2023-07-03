@@ -6,6 +6,7 @@ const style = StyleSheet.create({
     height: '100%',
     // paddingHorizontal: 20,
   },
+  userPostContainer: {paddingHorizontal: 26, marginTop: 20, height: '100%'},
 
   userName: {
     fontFamily: 'Inter',

@@ -10,6 +10,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  userStoryHeader: {marginTop: 10, height: 100},
   messageIcon: {
     backgroundColor: '#F9FAFB',
     padding: 12,

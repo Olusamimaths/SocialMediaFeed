@@ -6,7 +6,7 @@ import UserAvatar from '../UserAvatar/UserAvatar';
 
 const UserStory = ({firstName}) => {
   return (
-    <View style={style.storyContainer}>
+    <View style={style.userAvatarContainer}>
       <UserAvatar />
       <Text style={style.storyUserName}>{firstName}</Text>
     </View>

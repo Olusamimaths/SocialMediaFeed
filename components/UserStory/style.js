@@ -1,7 +1,9 @@
 const {StyleSheet} = require('react-native');
 
 const style = StyleSheet.create({
-  storyContainer: {
+  userStoryContainer: {marginTop: 10, marginLeft: 25, marginBottom: 20},
+
+  userAvatarContainer: {
     marginRight: 20,
   },
   storyUserName: {
