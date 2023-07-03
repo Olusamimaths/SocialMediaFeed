@@ -1,10 +1,13 @@
 import React from 'react';
 import {paginate} from '../../util/paginate';
 import UserPost from './UserPost';
+import AppHeader from '../AppHeader/AppHeader';
+import Story from '../UserStory/Story';
+import style from './style';
 
 const {useState} = require('react');
 const {getPosts} = require('../../data/getPosts');
-const {FlatList} = require('react-native');
+const {FlatList, View} = require('react-native');
 
 function Posts() {
   const posts = getPosts();
@@ -15,7 +18,15 @@ function Posts() {
 
   return (
     <FlatList
-      keyExtractor={item => item.id.toString()}
+      ListHeaderComponent={
+        <>
+          <AppHeader />
+          <View style={style.userStoryContainer}>
+            <Story />
+          </View>
+        </>
+      }
+      keyExtractor={item => `post-${item.id.toString()}`}
       onEndReachedThreshold={0.5}
       onEndReached={() => {
         if (!isLoading) {
@@ -34,7 +45,11 @@ function Posts() {
       }}
       showsVerticalScrollIndicator={false}
       data={currentData}
-      renderItem={({item}) => <UserPost postItem={item} />}
+      renderItem={({item}) => (
+        <View style={style.userPostContainer}>
+          <UserPost postItem={item} />
+        </View>
+      )}
     />
   );
 }

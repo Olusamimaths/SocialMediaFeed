@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Image, Pressable, Text, View} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
@@ -7,13 +7,26 @@ import {
   faComment,
   faHeart,
 } from '@fortawesome/free-regular-svg-icons';
+import {faHeart as faHeartSolid} from '@fortawesome/free-solid-svg-icons';
 import {faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import style from './style';
 import UserAvatar from '../UserAvatar/UserAvatar';
 
 function UserPost({postItem}) {
-  const {firstName, lastName, bookmarks, likes, comments, userLiked, location} =
+  let {firstName, lastName, bookmarks, likes, comments, userLiked, location} =
     postItem;
+
+  const [likedPost, setUserLiked] = useState(userLiked);
+  const [likesCount, setLikes] = useState(likes);
+
+  function handleLike() {
+    if (likedPost) {
+      setLikes(likesCount - 1);
+    } else {
+      setLikes(likesCount + 1);
+    }
+    setUserLiked(!likedPost);
+  }
 
   return (
     <View style={style.container}>
@@ -23,11 +36,9 @@ function UserPost({postItem}) {
 
           <View style={style.userNameAndLocation}>
             <Text style={style.userName}>
-              {postItem.firstName} {postItem.lastName}
+              {firstName} {lastName}
             </Text>
-            {postItem.location && (
-              <Text style={style.location}>{postItem.location}</Text>
-            )}
+            {location && <Text style={style.location}>{location}</Text>}
           </View>
         </View>
 
@@ -41,9 +52,18 @@ function UserPost({postItem}) {
       </View>
 
       <View style={style.postStatistics}>
-        <Pressable style={style.postStatisticsElement}>
-          <FontAwesomeIcon icon={faHeart} style={style.icon} />
-          <Text style={style.postStatisticsText}>{likes}</Text>
+        <Pressable
+          style={style.postStatisticsElement}
+          onPress={() => {
+            handleLike();
+          }}>
+          {likedPost ? (
+            <FontAwesomeIcon icon={faHeartSolid} style={style.iconActive} />
+          ) : (
+            <FontAwesomeIcon icon={faHeart} style={style.icon} />
+          )}
+
+          <Text style={style.postStatisticsText}>{likesCount}</Text>
         </Pressable>
         <Pressable style={style.postStatisticsElement}>
           <FontAwesomeIcon icon={faComment} style={style.icon} />

@@ -1,12 +1,6 @@
 const {StyleSheet} = require('react-native');
 
 const style = StyleSheet.create({
-  postContainer: {
-    marginTop: 20,
-    height: '100%',
-    // paddingHorizontal: 20,
-  },
-
   userName: {
     fontFamily: 'Inter',
     fontWeight: '500',
@@ -64,6 +58,11 @@ const style = StyleSheet.create({
   postStatisticsText: {
     color: '#79869F',
   },
+
+  userStoryContainer: {paddingLeft: 26, marginTop: 10},
+  userPostContainer: {paddingHorizontal: 26, marginTop: 20},
+
+  iconActive: {color: '#FF4D5B', marginRight: 3},
 });
 
 export default style;
