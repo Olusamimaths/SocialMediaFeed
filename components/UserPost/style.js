@@ -28,12 +28,6 @@ const style = StyleSheet.create({
   userNameAndLocation: {
     marginLeft: 10,
   },
-  userAvatar: {
-    borderWidth: 1,
-    borderColor: '#F35BAC',
-    borderRadius: 50,
-    padding: 3,
-  },
   container: {
     borderBottomWidth: 1,
     borderBottomColor: '#EFF2F6',

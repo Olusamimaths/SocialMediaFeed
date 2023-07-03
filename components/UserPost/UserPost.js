@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import {faEllipsisH} from '@fortawesome/free-solid-svg-icons';
 import style from './style';
+import UserAvatar from '../UserAvatar/UserAvatar';
 
 function UserPost({postItem}) {
   const {firstName, lastName, bookmarks, likes, comments, userLiked, location} =
@@ -18,13 +19,7 @@ function UserPost({postItem}) {
     <View style={style.container}>
       <View style={style.userInformationContainer}>
         <View style={style.userInformation}>
-          <View style={style.userAvatar}>
-            <Image
-              style={style.userAvatar}
-              resizeMode="cover"
-              source={require('../../assets/images/default_profile.png')}
-            />
-          </View>
+          <UserAvatar />
 
           <View style={style.userNameAndLocation}>
             <Text style={style.userName}>
