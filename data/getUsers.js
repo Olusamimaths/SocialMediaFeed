@@ -54,7 +54,7 @@ export function getUsers() {
     },
     {
       id: 14,
-      firstName: 'Skywalker',
+      firstName: 'Walker',
     },
     {
       id: 15,

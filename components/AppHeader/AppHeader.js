@@ -4,8 +4,9 @@ import Title from '../Title/Title';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import style from './style';
 import {faEnvelope} from '@fortawesome/free-regular-svg-icons';
+import {Routes} from '../../navigation/routes';
 
-const AppHeader = () => {
+const AppHeader = ({navigation}) => {
   return (
     <View style={style.header}>
       <Title title="Let's Explore" />

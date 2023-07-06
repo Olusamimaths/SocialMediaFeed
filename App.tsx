@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import {SafeAreaView} from 'react-native';
-import Posts from './components/UserPost/Posts';
+import {NavigationContainer} from '@react-navigation/native';
+import MainNavigation from './navigation/MainNavigation';
 
 function App(): JSX.Element {
   return (
-    <SafeAreaView>
-      <Posts />
-    </SafeAreaView>
+    <NavigationContainer>
+      <MainNavigation />
+    </NavigationContainer>
   );
 }
 export default App;

@@ -9,7 +9,7 @@ const {useState} = require('react');
 const {getPosts} = require('../../data/getPosts');
 const {FlatList, View} = require('react-native');
 
-function Posts() {
+function Posts({navigation}) {
   const posts = getPosts();
   const pageSize = 2;
   const [page, setPage] = useState(1);
@@ -20,7 +20,7 @@ function Posts() {
     <FlatList
       ListHeaderComponent={
         <>
-          <AppHeader />
+          <AppHeader navigation={navigation} />
           <View style={style.userStoryContainer}>
             <Story />
           </View>

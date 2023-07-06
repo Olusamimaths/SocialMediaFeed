@@ -1,11 +1,13 @@
+import {horizontalScale} from '../../assets/styles/scaling';
+
 const {StyleSheet} = require('react-native');
 
 const style = StyleSheet.create({
   avatar: {
-    borderWidth: 1,
+    borderWidth: horizontalScale(1),
     borderColor: '#F35BAC',
-    padding: 3,
-    borderRadius: 50,
+    padding: horizontalScale(2.5),
+    borderRadius: horizontalScale(50),
   },
 });
 
